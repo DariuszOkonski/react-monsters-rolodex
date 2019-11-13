@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   return (
     <div>
-      <h1>Hello world</h1>
+      <h1 className={styles.header}>Hello world</h1>
     </div>
   );
 }
