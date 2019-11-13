@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './App.module.css';
 import CardsList from '../CardsList/CardsList';
+import FindMonster from '../FindMonster/FindMonster';
 
 class App extends Component {
   state = {
@@ -8,6 +9,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.handleFetchData();
+  }
+
+  handleFetchData = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => {
         if (res.status === 200) {
@@ -24,10 +29,14 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+
+
   render() {
     return (
       <div>
         <h1 className={styles.header}>monsters rolodex</h1>
+
+        <FindMonster />
 
         <CardsList monsters={this.state.monsters} />
       </div>
