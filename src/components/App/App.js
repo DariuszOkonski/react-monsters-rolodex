@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './App.module.css';
+import CardsList from '../CardsList/CardsList';
 
 class App extends Component {
   state = {
@@ -26,7 +27,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>monsters rolodex</h1>
+        <h1 className={styles.header}>monsters rolodex</h1>
+
+        <CardsList monsters={this.state.monsters} />
       </div>
     );
   }
