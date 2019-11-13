@@ -11,3 +11,9 @@
 .paragraph {
   font-size: 0.8rem;
 }
+
+@media(min-width: 768px) {
+  .paragraph {
+    font-size: 1rem;
+  }
+}
