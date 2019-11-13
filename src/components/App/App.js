@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './App.module.css';
 
-function App() {
-  return (
-    <div>
-      <h1 className={styles.header}>Hello world</h1>
-    </div>
-  );
+class App extends Component {
+  state = {
+    monsters: []
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => {
+        if (res.status === 200) {
+          return res.json();
+        }
+
+        throw new Error('Something went wrong')
+      })
+      .then(monsters => {
+        this.setState({
+          monsters
+        })
+      })
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>monsters rolodex</h1>
+      </div>
+    );
+  }
 }
 
 export default App;
