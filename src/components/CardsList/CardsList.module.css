@@ -20,3 +20,15 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media(min-width: 768px) {
+  .items {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(min-width: 1024px) {
+  .items {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
