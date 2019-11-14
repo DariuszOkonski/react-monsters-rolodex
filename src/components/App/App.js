@@ -5,7 +5,8 @@ import FindMonster from '../FindMonster/FindMonster';
 
 class App extends Component {
   state = {
-    monsters: []
+    monsters: [],
+    find: []
   }
 
   componentDidMount() {
@@ -23,22 +24,30 @@ class App extends Component {
       })
       .then(monsters => {
         this.setState({
-          monsters
+          monsters,
+          find: monsters,
         })
       })
       .catch(err => console.log(err));
   }
 
+  handleFind = (name) => {
+    let find = [...this.state.monsters];
+    find = find.filter(m => m.name.toLowerCase().includes(name.toLowerCase()));
 
+    this.setState({
+      find
+    })
+  }
 
   render() {
     return (
       <div>
         <h1 className={styles.header}>monsters rolodex</h1>
 
-        <FindMonster />
+        <FindMonster handleFind={this.handleFind} />
 
-        <CardsList monsters={this.state.monsters} />
+        <CardsList monsters={this.state.find} />
       </div>
     );
   }
