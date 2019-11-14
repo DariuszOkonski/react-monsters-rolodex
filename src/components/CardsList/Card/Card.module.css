@@ -2,6 +2,8 @@
   background-color: #393d55;
   border-radius: 10px;
   padding: 0.5rem;
+  transition: .2s;
+  cursor: pointer;
 }
 
 .image {
@@ -15,5 +17,9 @@
 @media(min-width: 768px) {
   .paragraph {
     font-size: 1rem;
+  }
+
+  .container:hover {
+    transform: scale(1.04);
   }
 }
