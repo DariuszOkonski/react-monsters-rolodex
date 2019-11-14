@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Card.module.css';
+import PropTypes from 'prop-types';
 
 
 const Card = (props) => {
@@ -18,6 +19,13 @@ const Card = (props) => {
       <p className={styles.paragraph}>{city}</p>
     </div>
   );
+}
+
+Card.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.string,
+  email: PropTypes.string,
+  city: PropTypes.string
 }
 
 export default Card;
